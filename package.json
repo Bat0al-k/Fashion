@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng serve",
-    "build": "ng build  --configuration production --output-path=dist",
-  "build:prod": "ng build --prod --output-path=dist",
+    "build": "ng build --configuration production",
+    "build:prod": "ng build --prod --output-path=dist",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
