@@ -1,0 +1,44 @@
+
+
+
+      
+<div class="card h-100 shadow-sm rounded position-relative">
+  <!-- صورة المنتج -->
+  <img 
+    [src]="product.image" 
+    [alt]="product.name" 
+    class="card-img-top" 
+    style="height: 220px; object-fit: contain; background-color: #f9f9f9;" />
+
+  <!-- بادجات -->
+  <span *ngIf="product.istrending" class="badge bg-danger position-absolute top-0 start-0 m-2">Trending</span>
+  <span *ngIf="!product.instock" class="badge bg-secondary position-absolute top-0 end-0 m-2">Out of Stock</span>
+
+  <!-- بيانات المنتج -->
+  <div class="card-body d-flex flex-column">
+    <div class="d-flex justify-content-between align-items-start mb-2">
+      <h5 class="card-title mb-0" style="font-size: 1rem;">{{ product.name }}</h5>
+      <div>
+        <ng-container *ngFor="let star of [1,2,3,4,5]">
+          <i class="bi bi-star-fill" [style.opacity]="star <= product.rating ? '1' : '0.3'" style="color: gold;"></i>
+        </ng-container>
+      </div>
+    </div>
+
+    <p class="fw-bold text-success">EGP {{ product.price }}</p>
+
+    <div class="mt-auto d-flex justify-content-between align-items-center">
+      <button (click)="goToDetails()" class="btn btn-sm btn-outline-primary fw-semibold shadow-sm">
+        View Details
+      </button>
+     <button (click)="onAddToCart()" class="btn btn-sm btn-outline-success rounded-circle shadow-sm d-flex align-items-center justify-content-center"
+  style="width: 40px; height: 40px;">
+  <i class="bi bi-cart-plus"></i>
+</button>
+      
+    </div>
+  </div>
+</div>
+
+
+

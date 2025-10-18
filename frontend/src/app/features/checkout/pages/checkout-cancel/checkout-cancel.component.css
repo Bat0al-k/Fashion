@@ -1,0 +1,37 @@
+.card {
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+.icon {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+.title {
+  color: #dc3545;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.message {
+  color: #777;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.btn-danger {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+  .cancel-image {
+    width: 400px;
+    height: 300px;
+    margin-bottom: 25px;
+  }

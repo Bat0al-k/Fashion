@@ -1,0 +1,103 @@
+<div class="register-page-wrapper position-relative vh-100">
+  <div class="bg-image"></div>
+  <div class="overlay"></div>
+
+  <div class="container h-100 d-flex align-items-center justify-content-center">
+    <div class="row w-100 text-white">
+      <!-- Left Section -->
+      <div class="col-md-6 d-flex flex-column justify-content-center ps-md-5 mb-4 mb-md-0">
+        <i class="fas fa-glasses fa-3x mb-3"></i>
+        <h1 class="display-4 fw-bold">FASHION</h1>
+        <p class="lead">Welcome to the ultimate fashion platform. Register now to start your journey!</p>
+      </div>
+
+      <!-- Right Form -->
+      <div class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInUp animate__faster">
+        <div class="card p-4 register-card rounded-4 shadow">
+          <h3 class="text-center fw-bold mb-3">Register</h3>
+
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="mb-3 position-relative">
+                  <i class="fas fa-user position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+              <input type="text" class="form-control ps-5" formControlName="name" placeholder="Full Name" />
+              <div *ngIf="name?.touched && name?.invalid" class="text-danger small mt-1">
+                <span *ngIf="name?.errors?.['required']">Name is required.</span>
+              </div>
+            </div>
+
+            <div class="mb-3 position-relative">
+              <i class="fas fa-envelope position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+              <input type="email" class="form-control ps-5" formControlName="email" placeholder="Email" />
+              <div *ngIf="email?.touched && email?.invalid" class="text-danger small mt-1">
+                <span *ngIf="email?.errors?.['required']">Email is required.</span>
+                <span *ngIf="email?.errors?.['email']">Invalid email format.</span>
+              </div>
+            </div>
+
+            <div class="mb-3 position-relative">
+              <i class="fas fa-lock position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+              <input [type]="showPassword ? 'text' : 'password'" class="form-control ps-5" formControlName="password" placeholder="Password" />
+              <i
+                class="position-absolute top-50 end-0 translate-middle-y me-3"
+                [class.fas]="true"
+                [class.fa-eye]="!showPassword"
+                [class.fa-eye-slash]="showPassword"
+                (click)="showPassword = !showPassword"
+                style="cursor: pointer;">
+              </i>
+              <div *ngIf="password?.touched && password?.invalid" class="text-danger small mt-1">
+                <span *ngIf="password?.errors?.['required']">Password is required.</span>
+                <span *ngIf="password?.errors?.['minlength']">Minimum 6 characters.</span>
+              </div>
+            </div>
+
+            <div class="mb-3 position-relative">
+              <i class="fas fa-lock position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+              <input [type]="showConfirmPassword ? 'text' : 'password'" class="form-control ps-5" formControlName="confirmPassword" placeholder="Confirm Password" />
+              <i
+                class="position-absolute top-50 end-0 translate-middle-y me-3"
+                [class.fas]="true"
+                [class.fa-eye]="!showConfirmPassword"
+                [class.fa-eye-slash]="showConfirmPassword"
+                (click)="showConfirmPassword = !showConfirmPassword"
+                style="cursor: pointer;">
+              </i>
+              <div *ngIf="confirmPassword?.touched && confirmPassword?.invalid" class="text-danger small mt-1">
+                <span *ngIf="confirmPassword?.errors?.['required']">Confirm password is required.</span>
+              </div>
+
+              <!-- Password mismatch error -->
+              <div *ngIf="form.errors?.['passwordMismatch'] && form.touched" class="text-danger small mt-1">
+                Passwords do not match.
+              </div>
+            </div>
+
+            <!-- <div class="mb-3 position-relative">
+                  <i class="fas fa-calendar position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+              <input type="date" class="form-control ps-5" formControlName="dob" placeholder="Date of Birth" />
+              <div *ngIf="dob?.touched && dob?.invalid" class="text-danger small mt-1">
+                <span *ngIf="dob?.errors?.['required']">DOB is required.</span>
+              </div>
+            </div> -->
+
+            <div class="d-grid mb-2" [ngClass]="{'cursor-not-allowed': loading || form.invalid}">
+              <button class="btn btn-dark rounded-3" [disabled]="loading || form.invalid">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm me-2" ></span>
+                Register
+              </button>
+            </div>
+
+            <!-- <div *ngIf="serverError" class="text-danger text-center small mb-2">
+              {{ serverError }}
+            </div> -->
+
+            <div class="text-center mt-2">
+              <span>Already have an account?</span>
+              <a routerLink="/auth/login" class="text-decoration-none fw-semibold pointer-event">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+
+
+/* الصورة الكبيرة */
+.main-product-image {
+  max-height: 380px;
+  object-fit: contain;
+  width: 100%;
+}
+
+/* الصور الجانبية */
+.thumbnail-image {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* اسم المنتج */
+.product-title {
+  color: black;
+  font-weight: bold;
+}
+
+/* سعر المنتج */
+.product-price {
+  color: black;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+/* التقييم بالنجوم */
+.star-icon {
+  color: gold;
+  font-size: 1.3rem;
+}
+
+/* لون الدائرة للون المنتج */
+.color-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border 0.3s ease;
+}
+
+.color-circle.selected {
+  border: 3px solid #000;
+}
+
+/* زر إضافة للسلة */
+.add-to-cart-btn {
+  padding: 14px 65px;         
+  font-size: 1.1rem;
+  border-radius: 8px;
+  position: relative;
+  top: -70px;              
+}
+
+/* عنوان Related Products */
+.related-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #dc3545;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* الآيقونة الجانبية */
+.related-title i {
+  transform: rotate(90deg);
+  font-size: 1.1rem;
+}
+
+/* وصف المنتج */
+.product-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  font-weight: 500;
+}
+
+

@@ -1,0 +1,10 @@
+<nav *ngIf="totalPages.length > 1" class="pagination justify-content-center mt-4">
+  <button 
+    *ngFor="let page of totalPages" 
+    class="btn btn-sm btn-outline-primary mx-1" 
+    [class.active]="page === currentPage" 
+    (click)="changePage(page)">
+    {{ page }}
+  </button>
+</nav>
+

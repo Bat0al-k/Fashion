@@ -1,0 +1,6 @@
+<div class="alert-container">
+    <div *ngFor="let alert of alerts" class="alert" [ngClass]="alert.type">
+        <span class="message">{{ alert.message }}</span>
+        <button class="close" (click)="close(alert.id)">×</button>
+    </div>
+</div>

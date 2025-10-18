@@ -1,0 +1,61 @@
+<div class="card p-4 shadow-sm">
+  <h5 class="fw-bold mb-4 text-danger">Edit Your Profile</h5>
+
+  <form [formGroup]="profileForm" (ngSubmit)="saveChanges()">
+    <div class="row mb-3">
+      <div class="col">
+        <label>First Name</label>
+        <input class="form-control" formControlName="firstName" placeholder="New first name" />
+        <div *ngIf="profileForm.get('firstName')?.touched && profileForm.get('firstName')?.invalid" class="text-danger mt-1 small">
+          <div *ngIf="profileForm.get('firstName')?.errors?.['required']">First name is required.</div>
+          <div *ngIf="profileForm.get('firstName')?.errors?.['minlength']">At least 2 characters required.</div>
+          <div *ngIf="profileForm.get('firstName')?.errors?.['pattern']">Only letters are allowed.</div>
+        </div>
+      </div>
+
+      <div class="col">
+        <label>Last Name</label>
+        <input class="form-control" formControlName="lastName" placeholder="New last name"/>
+        <div *ngIf="profileForm.get('lastName')?.touched && profileForm.get('lastName')?.invalid" class="text-danger mt-1 small">
+          <div *ngIf="profileForm.get('lastName')?.errors?.['required']">Last name is required.</div>
+          <div *ngIf="profileForm.get('lastName')?.errors?.['minlength']">At least 2 characters required.</div>
+          <div *ngIf="profileForm.get('lastName')?.errors?.['pattern']">Only letters are allowed.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col">
+        <label>Email</label>
+        <input class="form-control" formControlName="email" [disabled]="true" />
+      </div>
+      <!-- <div class="col">
+        <label>Address</label>
+        <input class="form-control" formControlName="address" [disabled]="true" />
+      </div> -->
+      <!-- <div class="col">
+        <label>Date of Birth</label>
+        <input type="text" class="form-control" formControlName="dateOfBirth" readonly/>
+      </div> -->
+    </div>
+
+    <div class="mb-3">
+      <label>Password Changes</label>
+      <input class="form-control mb-2" formControlName="currentPassword" placeholder="Current Password" type="password" />
+      <input class="form-control mb-2" formControlName="newPassword" placeholder="New Password" type="password" />
+      <div *ngIf="profileForm.get('newPassword')?.touched && profileForm.get('newPassword')?.invalid" class="text-danger small mb-2">
+        <div *ngIf="profileForm.get('newPassword')?.errors?.['minlength']">Password must be at least 6 characters.</div>
+      </div>
+
+      <input class="form-control" formControlName="confirmNewPassword" placeholder="Confirm New Password" type="password" />
+      <div *ngIf="profileForm.hasError('passwordsMismatch') && profileForm.get('confirmNewPassword')?.touched" class="text-danger small mt-1">
+        Passwords do not match.
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end gap-2">
+      <button type="button" class="btn btn-outline-secondary" (click)="resetForm()">Cancel</button>
+      <button type="submit" class="btn btn-danger">Save Changes</button>
+    </div>
+  </form>
+</div>

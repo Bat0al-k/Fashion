@@ -1,0 +1,84 @@
+<div class="login-page-wrapper position-relative vh-100">
+  <div class="bg-image"></div>
+  <div class="overlay"></div>
+
+  <div class="container h-100 d-flex align-items-center justify-content-center">
+    <div class="row w-100 text-white">
+      <!-- Left Text -->
+      <div class="col-md-6 d-flex flex-column justify-content-center ps-md-5 mb-4 mb-md-0">
+        <i class="fas fa-glasses fa-3x mb-3"></i>
+        <h1 class="display-4 fw-bold">Welcome Back</h1>
+        <p class="lead">Log in to your fashion account and continue shopping in style!</p>
+      </div>
+
+      <!-- Right Form -->
+      <div
+        class="col-md-6 d-flex justify-content-center animate__animated animate__fadeInUp animate__faster"
+      >
+        <div class="card p-4 login-card rounded-4 shadow">
+          <h3 class="text-center fw-bold mb-4">Login</h3>
+
+          <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="mb-3">
+              <input type="email" formControlName="email" class="form-control" placeholder="Email" />
+              <div *ngIf="email?.touched && email?.invalid" class="text-danger small mt-1">
+                <span *ngIf="email?.errors?.['required']">Email is required.</span>
+                <span *ngIf="email?.errors?.['email']">Invalid email format.</span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <input
+                type="password"
+                formControlName="password"
+                class="form-control"
+                placeholder="Password"
+              />
+              <div *ngIf="password?.touched && password?.invalid" class="text-danger small mt-1">
+                Password is required.
+              </div>
+            </div>
+
+            <!-- Remember me -->
+            <div class="form-check mb-3">
+              <input
+                type="checkbox"
+                formControlName="remember"
+                class="form-check-input"
+                id="remember"
+              />
+              <label for="remember" class="form-check-label">Remember me</label>
+            </div>
+
+            <div class="mb-3 text-end">
+              <a routerLink="/cart" class="text-decoration-none text-secondary">Forgot password?</a>
+            </div>
+
+            <div class="d-grid mb-2" [ngClass]="{'cursor-not-allowed': loading || form.invalid}">
+              <button class="btn btn-dark rounded-3" [disabled]="loading">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm me-2"></span>
+                Login
+              </button>
+            </div>
+
+            <!-- Google login -->
+            <div class="d-grid mb-2">  <!-- class="btn btn-google" -->
+              <button class="btn btn-outline-danger rounded-3" type="button" (click)="loginWithGoogle()" >
+                <i class="fab fa-google me-2"></i> Login with Google
+              </button>
+            </div>
+
+            <!-- <div *ngIf="serverError" class="text-danger text-center small mb-2">
+              {{ serverError }}
+            </div> -->
+
+            <div class="text-center mt-2">
+              <span>Don't have an account?</span>
+              <a routerLink="/auth/register" class="text-decoration-none fw-semibold">Register</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

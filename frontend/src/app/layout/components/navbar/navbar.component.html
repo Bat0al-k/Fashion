@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg bg-white px-4 py-3 shadow-sm">
+  <div class="container-fluid">
+    <!-- Logo with margin -->
+    <a class="navbar-brand fw-bold fs-4 me-5" routerLink="/home">Fashion</a>
+
+    <!-- Hamburger Menu for small screens -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+      aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+      <!-- Left links -->
+      <ul class="navbar-nav mb-2 mb-lg-0 gap-3">
+        <li class="nav-item"><a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/products" routerLinkActive="active">Product</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/about" routerLinkActive="active">About</a></li>
+        <li class="nav-item" *ngIf="!isLoggedIn()"><a class="nav-link" routerLink="auth/register" routerLinkActive="active">Sign Up</a></li>
+      </ul>
+
+
+<!-- Batool -->
+<!--   <a class="navbar-brand mx-auto" routerLink="/">Fashion</a>
+  <a routerLink="/profile" class="nav-item me-3" >Profile</a>-->
+  <ul class="navbar-nav d-flex flex-row">
+    <li *ngIf="!isLoggedIn" class="nav-item me-3"><a class="nav-link" routerLink="/login">Login</a></li>
+    <!-- <li *ngIf="!isLoggedIn()"><a routerLink="/register" routerLinkActive="active">Register</a></li> -->
+    <!-- <li *ngIf="isLoggedIn" class="nav-item"><a class="nav-link" (click)="logout()">Logout</a></li> -->
+  </ul>
+
+      <!-- Right icons -->
+      <div class="d-flex align-items-center gap-3">
+        <!-- Search -->
+        <div class="input-group">
+          <input type="text" class="form-control form-control-sm" placeholder="What are you looking for?">
+          <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+        </div>
+
+        <!-- Heart -->
+        <i class="bi bi-heart fs-5"></i>
+
+        <!-- Cart with badge -->
+        <div class="position-relative" routerLink="cart">
+          <i class="bi bi-cart fs-5"></i>
+          <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
+        </div>
+
+        <!-- Person icon -->
+        <i class="bi bi-person fs-5" routerLink="/profile"></i>
+      </div>
+    </div>
+  </div>
+</nav>

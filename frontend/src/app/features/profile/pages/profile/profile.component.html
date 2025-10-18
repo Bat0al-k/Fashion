@@ -1,0 +1,26 @@
+<div class="profile-wrapper d-flex">
+  <!-- Sidebar -->
+  <aside class="col-md-2 sidebar">
+    <h4 class="fw-bold">Manage My Account</h4>
+    <ul class="list-unstyled">
+          <li class="text-danger fw-semibold mb-2" (click)="goToPayment()">My Profile</li>
+          <!-- <li class="text-muted mb-2">Address Book</li> -->
+          <li class="text-muted mb-4">My Payment Options</li>
+        </ul>
+
+        <h6 class="fw-bold">My Orders</h6>
+        <ul class="list-unstyled">
+          <li class="text-muted mb-2" (click)="goToOrders()">My Returns</li>
+          <li class="text-muted mb-4">My Cancellations</li>
+        </ul>
+
+        <!-- <h6 class="fw-bold">My Wishlist</h6> -->
+        <button (click)="logout()" class="btn btn-danger col-9">Logout</button>
+
+  </aside>
+
+  <!-- Profile Form -->
+<section class="col-md-9">
+    <app-profile-form/>
+</section>
+</div>

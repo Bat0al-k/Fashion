@@ -1,0 +1,10 @@
+.pagination button {
+  min-width: 36px;
+  transition: all 0.2s ease;
+}
+
+.pagination .active {
+  background-color: #198754;
+  color: white !important;
+  border-color: #198754;
+}

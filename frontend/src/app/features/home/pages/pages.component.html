@@ -1,0 +1,114 @@
+ <!-- Hero Section -->
+<section class="hero-section container-fluid">
+  <div class="overlay container-fluid d-flex flex-column justify-content-center align-items-center text-center">
+    <h1 class="display-4">Welcome to Fashion Store</h1>
+    <p class="lead">Discover the latest trends now.</p>
+    <a routerLink="/products" class="btn btn-dark btn-lg mt-8">Shop Now</a>
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="category-section container py-5">
+  <h4 class="text-center mb-4">Product Categories</h4>
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let cat of categories">
+      <div class="category-card text-center shadow-sm p-3 rounded">
+        <img [src]="cat.image" [alt]="cat.name" class="category-img mb-3">
+        <h5>{{ cat.name }}</h5>
+        <p class="text-muted">{{ cat.description }}</p>
+        <a [routerLink]="['/products']" [queryParams]="{ category: cat.name}">
+      <button class="btn btn-dark" >Shop Now</button> </a>     </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Top Rated for Men -->
+<section class="top-rated container py-5">
+  <h1>Top Rated</h1> <br>
+  <h4 class="section-title"> Men</h4>
+  <div class="slider-wrapper">
+    <button class="arrow" (click)="prev('men')">&#8592;</button>
+    <div class="cards-container">
+      <div class="card" *ngFor="let product of getVisible(menProducts, currentMen)">
+        <img [src]="product.img" alt="{{ product.name }}">
+        <h6>{{ product.name }}</h6>
+        <p class="price">{{ product.price }} EGP</p>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <button class="arrow" (click)="next('men')">&#8594;</button>
+  </div>
+</section>
+
+<!-- Top Rated for Women -->
+<section class="top-rated container py-5">
+  <h4 class="section-title">Women</h4>
+  <div class="slider-wrapper">
+    <button class="arrow" (click)="prev('women')">&#8592;</button>
+    <div class="cards-container">
+      <div class="card" *ngFor="let product of getVisible(womenProducts, currentWomen)">
+        <img [src]="product.img" alt="{{ product.name }}">
+        <h6>{{ product.name }}</h6>
+        <p class="price">{{ product.price }} EGP</p>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <button class="arrow" (click)="next('women')">&#8594;</button>
+  </div>
+</section>
+
+<!-- Top Rated for Kids -->
+<section class="top-rated container py-5">
+  <h4 class="section-title"> Kids</h4>
+  <div class="slider-wrapper">
+    <button class="arrow" (click)="prev('kids')">&#8592;</button>
+    <div class="cards-container">
+      <div class="card" *ngFor="let product of getVisible(kidsProducts, currentKids)">
+        <img [src]="product.img" alt="{{ product.name }}">
+        <h6>{{ product.name }}</h6>
+        <p class="price">{{ product.price }} EGP</p>
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+    <button class="arrow" (click)="next('kids')">&#8594;</button>
+  </div>
+</section>
+
+<!-- Brands -->
+<section class="brands container py-5">
+  <h4 class="text-center mb-5 fw-bold">The Brand's Journal</h4>
+
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6">
+      <img src="assets/photo2.jpg" class="img-fluid rounded shadow-sm brand-img" alt="Brand 1">
+    </div>
+    <div class="col-md-6">
+      <h5 class="fw-bold">Summer 2025 Men's Campaign</h5>
+      <p>The Dior Summer 2025 collection is unveiled in an original, irresistibly poetic campaign,</p>
+      <button class="btn btn-dark" (click)="goToLink('https://www.dior.com/en_us/fashion/news-fashion-shows/folder-news-and-events/summer-2025-mens-campaign')">Explore me</button>
+    </div>
+  </div>
+
+  <div class="row align-items-center flex-md-row-reverse mb-5">
+    <div class="col-md-6">
+      <img src="assets/photo5.jpg" class="img-fluid rounded shadow-sm brand-img" alt="Brand 2">
+    </div>
+    <div class="col-md-6">
+      <h5 class="fw-bold">Winter 2024-2025 Men's Campaign</h5>
+      <p>Expressing absolute elegance, the silhouettes of the Dior Winter 2024-2025 collection are</p>
+      <button class="btn btn-dark" (click)="goToLink('https://www.dior.com/en_us/fashion/news-fashion-shows/folder-news-and-events/winter-2024-2025-mens-campaign')">Explore me</button>
+    </div>
+  </div>
+
+   <div class="row align-items-center mb-5">
+    <div class="col-md-6">
+      <img src="assets/bg1.jpg" class="img-fluid rounded shadow-sm brand-img" alt="Brand 1">
+    </div>
+    <div class="col-md-6">
+      <h5 class="fw-bold">Autumn-Winter 2024-25 Ready-To-Wear Show</h5>
+      <p>For this show, Maria Grazia Chiuri has reflected on the transitional era of the late</p>
+      <button class="btn btn-dark" (click)="goToLink('https://www.dior.com/en_us/fashion/womens-fashion/ready-to-wear-shows/autumn-winter-2024-2025-ready-to-wear-show')">Explore me</button>
+    </div>
+  </div>
+</section>

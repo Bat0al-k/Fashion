@@ -1,0 +1,62 @@
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"> 
+
+<div class="container my-4">
+  <!-- 🔘 Buttons Row -->
+  <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+    <div class="d-flex gap-2">
+      <!-- Filter Button -->
+      <button class="btn btn-outline-dark d-flex align-items-center gap-2 px-3 py-2 shadow-sm"
+              (click)="toggleSidebar()">
+        <i class="bi bi-funnel"></i>
+        <span class="fw-semibold">Filter</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+   
+     <div *ngIf="showSidebar" class="col-12 col-md-3 mb-4">
+      <app-product-filter
+        [minPrice]="0"
+        [maxPrice]="1000"
+        (filtersChanged)="applyFilters($event)">
+      </app-product-filter>
+    </div> 
+
+    <!-- Product Cards -->
+    <div [ngClass]="showSidebar ? 'col-12 col-md-9' : 'col-12'"
+         style="min-height: 500px;">
+      <div class="row g-4">
+        <div class="col-12 col-sm-6 col-md-4" *ngFor="let product of products">
+  <app-product-card 
+    [product]="product"
+    (addToCartClicked)="addToCart($event)">
+  </app-product-card>
+</div>
+
+        <!-- No Products -->
+        <div class="col-12 text-center text-muted fs-5"
+             *ngIf="products.length === 0">
+          No products found for the selected filters.
+
+        </div>
+      </div>
+
+      <!-- Pagination -->
+
+      <app-pagination
+        [totalItems]="totalItems"
+        [itemsPerPage]="itemsPerPage"
+        [currentPage]="currentPage"
+        (pageChanged)="onPageChange($event)">
+      </app-pagination>
+    </div>
+  </div>
+</div>
+
+
+
+
+
