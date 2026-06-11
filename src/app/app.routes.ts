@@ -44,6 +44,9 @@ export const routes: Routes = [
       loadChildren: () =>
       import('./features/products/products.module').then(m => m.ProductsModule),
   },{
+    path: 'verified=success',
+    redirectTo: 'home',
+  },{
       path: 'cart',
       canActivate: [AuthGuard],
       loadChildren: () =>
