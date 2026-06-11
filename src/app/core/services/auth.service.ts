@@ -24,6 +24,7 @@ export class AuthService {
   logout(): void {
     this._cachedUser = null;
     localStorage.removeItem(this.tokenKey);
+    sessionStorage.removeItem(this.tokenKey);
   }
 
   saveToken(token: string, remember: boolean = true): void {
